@@ -13,22 +13,42 @@
         <header>
             <nav>
                 <img src="/front/images/logo/logo.png" alt="logo">
+                <div class="cart-wrapper">
+                    <img id="cart-img" src="/front/images/logo/carrito.png" alt="">
+                        <section id="cart-container">
+                            <h2>Carrito</h2>
+                                <div class="carrito-elementos">
+
+                                </div>
+                                <div class="button-container-cart">
+                                    <button class="button-vaciar">Vaciar Carrito</button>
+                                    <button class="button-comprar">Comprar</button>
+                                </div>
+            
+                        </section>
+                </div>
+                
             </nav>
         </header>
         <section class="contenedor-productos">
         <h1>Productos</h1>
-        <label for="categoria">Selecciona una categoría:</label>
+        <div class="label-container">
+            <label for="categoria">Selecciona una categoría:</label>
                     <select id="categoria">
                         <option value="Todos">Todos</option>
                         <option value="Smartphone">Smartphone</option>
                         <option value="Auriculares">Auriculares</option>
                     </select>
+        </div>
+        
             <div id="sectionProd">
-
-                
-
             </div>
         </section>
+
+
+
+
+
      </main>
 </body>
 </html>
