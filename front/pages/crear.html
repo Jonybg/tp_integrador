@@ -38,18 +38,18 @@
         <form id="altaProducts-container">
 
             <label for="nameProd">Nombre</label>
-            <input type="text" name="name" id="nameProd" required>
+            <input type="text" name="nombre" id="nameProd" required>
 
             <label for="imageProd">Imagen</label>
-            <input type="text" name="image" id="imageProd" required>
+            <input type="text" name="imagen" id="imageProd" required>
 
             <label for="priceProd">Precio</label>
-            <input type="number" name="price" id="priceProd" required>
+            <input type="number" name="precio" id="priceProd" required>
 
             <label for="categoryProd">Categoria</label>
-            <select name="category" id="categoryProd" required>
-                <option value="food">comida</option>
-                <option value="drink">bebida</option>
+            <select name="categoria" id="categoryProd" required>
+                <option value="Auriculares">Auriculares</option>
+                <option value="Smartphone">Smartphone</option>
             </select>
 
             <input type="submit" value="Crear producto">
@@ -73,7 +73,8 @@
 
             console.log(formData); 
 
-            let data = Object.fromEntries(formData.entries()); 
+            let data = Object.fromEntries(formData.entries());
+            console.log(data)
 
             try {
                 let response = await fetch(`${url}/products`, {
