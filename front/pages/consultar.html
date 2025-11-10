@@ -66,25 +66,45 @@
             let idProd = data.idProd; 
             console.log(idProd);
 
-            console.log(`Realizando una peticion GET a la url ${url}/products/${idProd}`);
+            console.log(`Realizando una peticion GET a la url ${url}/api/products/${idProd}`);
             
-            let response = await fetch(`${url}/products/${idProd}`);
+            let response = await fetch(`${url}/api/products/${idProd}`);
 
             let datos = await response.json();
 
-            let producto = datos.payload[0];
-            console.log(producto);
+            if(response.ok){
+                let producto = datos.payload[0];
+                console.log(producto);
+                mostrarProducto(producto);
+            } else{
+                console.log(datos);
+                console.log(datos.message);
+                mostrarError(datos.message);
+            }
 
+            });
+
+        function mostrarProducto(producto){
             let htmlProducto = `
                 <li class="li-producto">
-                        <img class="producto-img" src="${producto.imagen}" alt="${producto.nombre}">
-                        <p>Id: ${producto.id} / Nombre: ${producto.nombre} / <strong>Precio: ${producto.precio}</strong></p>
+                    <img class="producto-img" src="${producto.imagen}" alt="${producto.nombre}">
+                    <p>Id: ${producto.id} / Nombre: ${producto.nombre} / <strong>Precio: ${producto.precio}</strong></p>
                 </li>
             `;
-
             listaProductos.innerHTML = htmlProducto;
-
-        });
+        }
+        
+        function mostrarError(message){
+            listaProductos.innerHTML = `
+                <li class="mensaje-error">
+                    <p>
+                        <strong>Error:</strong>
+                        <span>${message}</span>
+                    </p>
+                </li>
+            `;
+        }
+        
     </script>
 </body>
 </html>
